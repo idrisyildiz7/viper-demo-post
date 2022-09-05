@@ -1,0 +1,115 @@
+PODS:
+  - Alamofire (5.6.2)
+  - CropViewController (2.6.1)
+  - DynamicBlurView (4.1.0)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/SDWebImage (1.9.2):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
+  - IQKeyboardManagerSwift (6.5.10)
+  - JGProgressHUD (2.2)
+  - KRActivityIndicatorView (3.0.7)
+  - KRProgressHUD (3.4.7):
+    - KRActivityIndicatorView (= 3.0.7)
+  - Material (3.1.8):
+    - Material/Core (= 3.1.8)
+  - Material/Core (3.1.8):
+    - Motion (~> 3.1.1)
+  - Motion (3.1.3):
+    - Motion/Core (= 3.1.3)
+  - Motion/Core (3.1.3)
+  - Pageboy (3.7.0)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
+  - PryntTrimmerView (4.0.2)
+  - ReachabilitySwift (5.0.0)
+  - Realm (10.28.6):
+    - Realm/Headers (= 10.28.6)
+  - Realm/Headers (10.28.6)
+  - RealmSwift (10.28.6):
+    - Realm (= 10.28.6)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
+  - SteviaLayout (4.7.3)
+  - SwiftEventBus (5.0.0)
+  - SwiftyJSON (5.0.1)
+  - Tabman (2.13.0):
+    - Pageboy (~> 3.7.0)
+  - Toast-Swift (5.0.1)
+  - YPImagePicker (5.2.1):
+    - PryntTrimmerView (= 4.0.2)
+    - SteviaLayout (= 4.7.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - CropViewController
+  - ImageSlideshow/SDWebImage
+  - IQKeyboardManagerSwift
+  - JGProgressHUD
+  - KRProgressHUD
+  - Material
+  - PopupDialog
+  - ReachabilitySwift
+  - RealmSwift
+  - SDWebImage
+  - SwiftEventBus
+  - SwiftyJSON
+  - Tabman
+  - Toast-Swift
+  - YPImagePicker
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CropViewController
+    - DynamicBlurView
+    - ImageSlideshow
+    - IQKeyboardManagerSwift
+    - JGProgressHUD
+    - KRActivityIndicatorView
+    - KRProgressHUD
+    - Material
+    - Motion
+    - Pageboy
+    - PopupDialog
+    - PryntTrimmerView
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - SteviaLayout
+    - SwiftEventBus
+    - SwiftyJSON
+    - Tabman
+    - Toast-Swift
+    - YPImagePicker
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  CropViewController: 58fb440f30dac788b129d2a1f24cffdcb102669c
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
+  KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
+  Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
+  Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
+  Pageboy: fe646118f7168960058bea7a96038386aa7c0da8
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Realm: 9b12f16a14446d7d46a9e36225d0a0332a6ec739
+  RealmSwift: 5927726fce21005f43b1fb57c832297a22031bfc
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  SwiftEventBus: b30f617a6aca5a9336464b4d3f5931034762f2d5
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  Tabman: 66ea44c44488327ec20f3c8dc5554a5d22f5908c
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  YPImagePicker: f36043210c10b0783034eb1947d6e06e31c461e4
+
+PODFILE CHECKSUM: 36d0209d48c6ab32009faf4ab8f387f911e25288
+
+COCOAPODS: 1.11.2

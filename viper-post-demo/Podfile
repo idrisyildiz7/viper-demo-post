@@ -1,0 +1,41 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'viper-post-demo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for viper-post-demo
+
+
+  pod 'Material'
+  pod 'PopupDialog'
+  pod 'Tabman'
+  pod 'IQKeyboardManagerSwift'
+  pod 'KRProgressHUD'
+  pod 'YPImagePicker'
+  pod 'JGProgressHUD'
+  pod 'SwiftyJSON'
+  pod 'Toast-Swift'
+  pod 'SwiftEventBus'
+  pod 'ReachabilitySwift'
+  pod 'Alamofire'
+
+  pod 'SDWebImage'
+  pod 'ImageSlideshow/SDWebImage'
+  
+  pod 'YPImagePicker'
+  pod 'CropViewController'
+  
+  pod 'RealmSwift'
+
+  target 'viper-post-demoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'viper-post-demoUITests' do
+    # Pods for testing
+  end
+
+end
