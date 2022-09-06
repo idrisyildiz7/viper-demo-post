@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class PostInteractor:PresenterToInteractorPostProtocol{
-   
+    
     var presenter: InteractorToPresenterPostProtocol?
     
     //fatch from server
@@ -35,8 +35,8 @@ class PostInteractor:PresenterToInteractorPostProtocol{
         }
     }
     
-    //dummy data
     func fetchPost() {
+        //dummy data
         if  Dataholder.shared.postItems.count <= 0
         {
             for i in 1..<4 {
@@ -53,22 +53,16 @@ class PostInteractor:PresenterToInteractorPostProtocol{
             }
         }
         
-        if Dataholder.shared.showAllPost {
-            presenter?.postFetchSuccess(items: Dataholder.shared.postItems)
-        }else{
-            var currentUserPosts = [PostModel]()
-            for i in 0..<Dataholder.shared.postItems.count {
-                if Dataholder.shared.currentUser.id == Dataholder.shared.postItems[i].ownerUser.id  {
-                    currentUserPosts.append(Dataholder.shared.postItems[i])
-                }
-            }
-            presenter?.postFetchSuccess(items: currentUserPosts)
-        }
+        filterPosts()
     }
-
+    
     func addPost(item: PostModel) {
         Dataholder.shared.postItems.append(item)
-         
+        filterPosts()
+    }
+    
+    func filterPosts()
+    {
         if Dataholder.shared.showAllPost {
             presenter?.postFetchSuccess(items: Dataholder.shared.postItems)
         }else{

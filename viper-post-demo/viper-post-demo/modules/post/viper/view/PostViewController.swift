@@ -8,6 +8,7 @@
 import UIKit
 import JGProgressHUD
 import YPImagePicker
+import SwiftEventBus
 
 class PostViewController: UIViewController {
     
@@ -26,22 +27,24 @@ class PostViewController: UIViewController {
     }
     
     func config() {
-        
         postPresenter?.startFetchingPost()
-        
         registerCell()
-        
-        myTableView.rowHeight = UITableView.automaticDimension
-        myTableView.estimatedRowHeight = 300
+        SwiftEventBus.onMainThread(self, name:"reloadPost") { result in
+            self.postPresenter?.startFetchingPost()
+        }
     }
     
     func registerCell() {
-        self.myTableView.register(nib: PostTableViewCell.self, nibName: PostTableViewCell.reuseIdentifier, identifier: PostTableViewCell.reuseIdentifier)
+        myTableView.delegate = self
+        myTableView.dataSource = self
+        myTableView.rowHeight = UITableView.automaticDimension
+        myTableView.estimatedRowHeight = 300
+        myTableView.register(nib: PostTableViewCell.self, nibName: PostTableViewCell.reuseIdentifier, identifier: PostTableViewCell.reuseIdentifier)
     }
 }
 
 extension PostViewController:PresenterToViewPostProtocol{
-   
+    
     func onPostResponseSuccess(items: [PostModel]) {
         posts = items
         myTableView.reloadData()
@@ -51,8 +54,6 @@ extension PostViewController:PresenterToViewPostProtocol{
         showToastMessage(title: "Erorr", msg: error, color: .red)
     }
 }
-
-
 
 extension PostViewController:UITableViewDelegate, UITableViewDataSource{
     

@@ -3,14 +3,12 @@
 //  viper-post-demo
 //
 //  Created by idris yıldız on 5.09.2022.
-//
 
 import UIKit
 import YPImagePicker
+import SwiftEventBus
 
 class CreatePostViewController: UIViewController {
-    
-    var postPresenter:ViewToPresenterPostProtocol?
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var photo: UIImageView!
@@ -19,6 +17,7 @@ class CreatePostViewController: UIViewController {
     @IBOutlet weak var postImage: UIImageView!
     var user = Dataholder.shared.currentUser
     var isPhotoSelected = false
+    var postPresenter:ViewToPresenterPostProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +36,6 @@ class CreatePostViewController: UIViewController {
         tap.cancelsTouchesInView = false
         postImage.addGestureRecognizer(tap)
         postImage.isUserInteractionEnabled = true
-        
         content.becomeFirstResponder()
     }
     
@@ -64,7 +62,10 @@ class CreatePostViewController: UIViewController {
                 sharedCount: 12,
                 seenCount: 3)
             post.photo = postImage.image
-            self.postPresenter?.addPost(item:post)
+            //add
+            Dataholder.shared.postItems.append(post)
+            SwiftEventBus.post("reloadPost")
+            //postPresenter?.addPost(item: post) //when reload tableview return nil so we use swiftevent bus, because it will took to much time to solve this
             self.dismiss(animated: true)
         }
     }

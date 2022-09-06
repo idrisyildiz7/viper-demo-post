@@ -32,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func createUsers()
     {
-        Dataholder.shared.users.append(UserModel(id: 1, name: "idris", nickName: "@idris47", photoUrl: "user1"))
-        Dataholder.shared.users.append(UserModel(id: 2, name: "Alina", nickName: "@alina", photoUrl: "user2"))
-        Dataholder.shared.users.append(UserModel(id: 3, name: "Elif", nickName: "@elifoo35", photoUrl: "user3"))
+        Dataholder.shared.users.append(UserModel(id: 1, name: "idris", nickName: "@idris047", photoUrl: "user1"))
+        Dataholder.shared.users.append(UserModel(id: 2, name: "Elif", nickName: "@elif0035", photoUrl: "user2"))
+        Dataholder.shared.users.append(UserModel(id: 3, name: "Alina", nickName: "@alina0009", photoUrl: "user3"))
         Dataholder.shared.currentUser = Dataholder.shared.users[0]
     }
 

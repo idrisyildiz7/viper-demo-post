@@ -9,7 +9,6 @@ import Foundation
 
 class PostPresenter:ViewToPresenterPostProtocol{
    
-    
     var view: PresenterToViewPostProtocol?
     
     var interactor: PresenterToInteractorPostProtocol?

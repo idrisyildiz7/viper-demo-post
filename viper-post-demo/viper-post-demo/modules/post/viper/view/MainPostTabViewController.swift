@@ -8,14 +8,16 @@
 import Tabman
 import Pageboy
 import UIKit
+import SwiftEventBus
 
 class MainPostTabViewController: TabmanViewController{
     
     @IBOutlet weak var currentUserImage: UIImageView!
     var titles = [String]()
     var parentNavigaition: UINavigationController!
+    var postView:PostViewController!
     var postPresenter:ViewToPresenterPostProtocol?
-    
+
     lazy var viewControllers: [UIViewController] = {
         var viewControllers = [UIViewController]()
         for i in 0 ..< 2 {
@@ -63,18 +65,19 @@ class MainPostTabViewController: TabmanViewController{
     func makeChildViewController(at index: Int?) -> UIViewController {
         if index == 0 {
             Dataholder.shared.showAllPost = false
-            let view =  PostRouter.createPostModule()
-            postPresenter = view.postPresenter
-            return view
+            postView = PostRouter.createPostModule()
+            postPresenter = postView.postPresenter
+            return postView
         }
         else  {
             Dataholder.shared.showAllPost = true
-            let view =  PostRouter.createPostModule()
-            postPresenter = view.postPresenter
-            return view
+            postView = PostRouter.createPostModule()
+            postPresenter = postView.postPresenter
+            return postView
         }
     }
     
+    //change user action
     @IBAction func changeUser(_ sender: Any) {
         generator.impactOccurred()
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -84,35 +87,38 @@ class MainPostTabViewController: TabmanViewController{
         let user1 = UIAlertAction(title:  Dataholder.shared.users[0].name, style: .default) { _ in
             Dataholder.shared.currentUser = Dataholder.shared.users[0]
             self.currentUserImage.image = UIImage(named: Dataholder.shared.currentUser.photoUrl)
-            self.postPresenter?.startFetchingPost()
+            SwiftEventBus.post("reloadPost")
+            //postPresenter?.startFetchingPost()//when reload tableview return nil so we use swiftevent bus, because it will took to much time to solve this
         }
         let user2 = UIAlertAction(title:  Dataholder.shared.users[1].name, style: .default) { _ in
             Dataholder.shared.currentUser = Dataholder.shared.users[1]
             self.currentUserImage.image = UIImage(named: Dataholder.shared.currentUser.photoUrl)
-            self.postPresenter?.startFetchingPost()
+            SwiftEventBus.post("reloadPost")
+            //postPresenter?.startFetchingPost()//when reload tableview return nil so we use swiftevent bus, because it will took to much time to solve this
         }
         let user3 = UIAlertAction(title:  Dataholder.shared.users[2].name, style: .default) { _ in
             Dataholder.shared.currentUser = Dataholder.shared.users[2]
             self.currentUserImage.image = UIImage(named: Dataholder.shared.currentUser.photoUrl)
-            self.postPresenter?.startFetchingPost()
+            SwiftEventBus.post("reloadPost")
+            //postPresenter?.startFetchingPost()//when reload tableview return nil so we use swiftevent bus, because it will took to much time to solve this
         }
         actionSheetController.addAction(cancel)
         actionSheetController.addAction(user1)
         actionSheetController.addAction(user2)
         actionSheetController.addAction(user3)
         self.present(actionSheetController, animated: true, completion: nil)
-        
     }
     
     @IBAction func addPost(_ sender: Any) {
         generator.impactOccurred()
         let vc:CreatePostViewController = UIStoryboard.CreatePost.instantiateViewController(withIdentifier: "CreatePostViewController") as! CreatePostViewController
-        vc.postPresenter = self.postPresenter
+        vc.postPresenter = postView.postPresenter
         self.navigationController?.present(vc, animated: true)
     }
 }
 
 extension MainPostTabViewController: PageboyViewControllerDataSource,TMBarDataSource{
+   
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
     }

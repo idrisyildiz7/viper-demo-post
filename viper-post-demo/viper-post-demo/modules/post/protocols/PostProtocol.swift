@@ -21,7 +21,6 @@ protocol PresenterToViewPostProtocol {
     func onPostResponseFailed(error:String)
 }
  
-
 protocol PresenterToRouterPostProtocol {
     static func createPostModule()->PostViewController
 }
@@ -38,3 +37,4 @@ protocol InteractorToPresenterPostProtocol {
     func postFetchSuccess(items:[PostModel])
     func postFetchFailed()
 }
+
